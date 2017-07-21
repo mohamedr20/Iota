@@ -9,7 +9,12 @@ import { User } from "./user.model";
 export class AuthService {
   constructor(private http:Http){}
 
-  signUp(user:User){}
+  signUp(user:User){
+    const body  = JSON.stringify(user);
+    const headers = new Headers({'Content-Type':'application/json'})
+    return this.http.post('http://localhost:3000/user', body, {headers: headers})
+  
+  }
 
   logIn(user:User){}
 

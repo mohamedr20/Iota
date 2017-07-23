@@ -4,25 +4,23 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { HttpModule } from "@angular/http";
 
 
-import {SignInComponent} from './auth/signin.component'
-import {SignUpComponent} from './auth/signup.component'
-import { LogoutComponent } from "./auth/logout.component";
 
-import {HeaderComponent} from './header.component';
+
+import {RegisterComponent} from './auth/register/register.component';
+import {LogInComponent} from './auth/login/login.component';
+import {HomeComponent} from './home/home.component';
+
 import { AppComponent } from "./app.component";
-import { AuthenticationComponent } from "./auth/authentication.component";
 import { routing } from "./app.routing";
 
-import { AuthService } from "./auth/auth.service";
+import { AuthService } from "./auth/services/auth.service";
 
 @NgModule({
     declarations: [
         AppComponent,
-        AuthenticationComponent,
-        HeaderComponent,
-        SignInComponent,
-        SignUpComponent,
-        LogoutComponent
+        LogInComponent,
+        RegisterComponent,
+        HomeComponent
     ],
     imports: [
         BrowserModule,

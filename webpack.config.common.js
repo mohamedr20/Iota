@@ -1,5 +1,9 @@
 var webpack = require('webpack');
-var path = require('path')
+
+//install this
+
+
+
 module.exports = {
     entry: {
         'app': './assets/app/main.ts'
@@ -17,8 +21,9 @@ module.exports = {
             },
             {
                 test: /\.css$/,
-                use: [{ loader: 'raw-loader' }]
-            }
+                use: [{ loader: 'raw-loader'}]
+            },
+            
         ],
         exprContextCritical: false
 

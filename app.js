@@ -1,43 +1,51 @@
-var express = require('express');
-var path = require('path');
-var favicon = require('serve-favicon');
-var logger = require('morgan');
-var cookieParser = require('cookie-parser');
-var bodyParser = require('body-parser');
-var mongoose = require('mongoose')
+const express = require('express');
+const path = require('path');
+const cors  =require('cors')
+const bodyParser = require('body-parser');
+const mongoose = require('mongoose');
+const passport = require('passport');
+const app = express();
+const port = 8000;
+const config = require('./server/config/database');
 
+const userRoutes = require('./server/routes/user');
 
-mongoose.connect('localhost:27017/Iota');
+mongoose.connect(config.database);
 
-var appRoutes = require('./routes/app');
-var userRoutes = require('./routes/user');
-var app = express();
+mongoose.connection.on('connected',()=>{
+  console.log('Connection to '+config.databse+' is successfull')
+})
+mongoose.connection.on('error',(err)=>{
+  console.log('Databse error: '+ err)
+})
+//Cors MiddleWare
+app.use(cors());
 
-// view engine setup
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'hbs');
+//BodyParser
+app.use(bodyParser.json())
 
-// uncomment after placing your favicon in /public
-//app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
-app.use(logger('dev'));
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
+//Set static folder
+app.use(express.static(path.join(__dirname,'client')))
 
-app.use(function(req, res, next) {
-  res.setHeader('Access-Control-Allow-Origin', '*');
-  res.setHeader('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
-  res.setHeader('Access-Control-Allow-Methods', 'POST, GET, PATCH, DELETE, OPTIONS');
-  next();
+//Passport middleware
+app.use(passport.initialize())
+app.use(passport.session())
+
+require('./server/config/passport')(passport)
+
+app.use('/users',userRoutes)
+
+app.get('/',(req,res)=>{
+  res.send('Home page')
+})
+
+app.listen(port,()=>{
+  console.log('Server started on port'+port)
 });
 
-app.use('/user',userRoutes)
-app.use('/', appRoutes);
 
-// catch 404 and forward to error handler
-app.use(function(req, res, next) {
-  res.render('index');
+mongoose.connect('localhost:27017/Iota',()=>{
+  console.log('Connected to Database')
 });
 
 module.exports = app;

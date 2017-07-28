@@ -1,51 +1,61 @@
+
 const express = require('express');
 const path = require('path');
-const cors  =require('cors')
 const bodyParser = require('body-parser');
-const mongoose = require('mongoose');
+const cors = require('cors');
 const passport = require('passport');
-const app = express();
-const port = process.env.PORT || 8000
-const config = require('./server/config/database');
-const debug = require('debug');
+const mongoose = require('mongoose');
+const config = require('./config/database');
 const userRoutes = require('./server/routes/user');
+const port = process.env.PORT || 8000
 
+// Connect To Database
 mongoose.connect(config.database);
 
-mongoose.connection.on('connected',()=>{
-  console.log('Connection to '+config.databse+' is successfull')
-})
-mongoose.connection.on('error',(err)=>{
-  console.log('Databse error: '+ err)
-})
-//Cors MiddleWare
+// On Connection
+mongoose.connection.on('connected', () => {
+  console.log('Connected to database '+config.database);
+});
+
+// On Error
+mongoose.connection.on('error', (err) => {
+  console.log('Database error: '+err);
+});
+
+const app = express();
+
+const users = require('./routes/users');
+
+// Port Number
+const port = process.env.PORT || 8080;
+
+// CORS Middleware
 app.use(cors());
 
-//BodyParser
-app.use(bodyParser.json())
+// Set Static Folder
+app.use(express.static(path.join(__dirname, 'public')));
 
-//Set static folder
-app.use(express.static(path.join(__dirname,'client')))
+// Body Parser Middleware
+app.use(bodyParser.json());
 
-//Passport middleware
-app.use(passport.initialize())
-app.use(passport.session())
+// Passport Middleware
+app.use(passport.initialize());
+app.use(passport.session());
 
-require('./server/config/passport')(passport)
+require('./config/passport')(passport);
 
-app.use('/users',userRoutes)
+app.use('/users', users);
 
-app.get('/',(req,res)=>{
-  res.send('Home page')
-})
-
-app.listen(port,()=>{
-  console.log('Server started on port'+port)
+// Index Route
+app.get('/', (req, res) => {
+  res.send('Invalid Endpoint');
 });
 
-
-mongoose.connect(config.database || 'localhost:27017/Iota',()=>{
-  console.log('Connected to Database')
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public/index.html'));
 });
 
-module.exports = app;
+// Start Server
+app.listen(port, () => {
+  console.log('Server started on port '+port);
+});

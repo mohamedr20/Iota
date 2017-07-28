@@ -1,4 +1,4 @@
 module.exports = {
-  database:'mongodb://localhost:27017/Iota',
+  database:'mongodb://mohamed:mohamed@ds043012.mlab.com:43012/iota',
   secret:'tokenSecret'
 }

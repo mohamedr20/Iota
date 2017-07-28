@@ -1,48 +1,21 @@
 {
   "name": "iota",
   "version": "1.0.0",
-  "private": true,
+  "description": "Iota",
+  "main": "app.js",
   "scripts": {
-    "start": "node ./bin/www",
-    "build:sass": "node-sass ./assets/app/sass_styles -o ./assets/app/css_styles",
-    "build": "del-cli public/js/app && webpack --config webpack.config.dev.js --progress --profile --watch",
-    "build:prod": "del-cli public/js/app && ngc -p tsconfig.aot.json && ngc -p tsconfig.aot.json && webpack --config webpack.config.prod.js --progress --profile --bail && del-cli 'public/js/app/**/*.js' 'public/js/app/**/*.js.map' '!public/js/app/bundle.js' '!public/js/app/*.chunk.js' 'assets/app/**/*.ngfactory.ts' 'assets/app/**/*.shim.ts' 'assets/app/**/*.ngsummary.json' 'assets/app/**/*.ngstyle.ts'",
-    "test": "mocha --timeout 10000"
+    "test": "mocha --timeout 10000",
+    "start": "node app"
   },
   "dependencies": {
-    "@angular/animations": "^4.0.0",
-    "@angular/common": "^4.0.0",
-    "@angular/compiler": "^4.0.0",
-    "@angular/compiler-cli": "^4.0.0",
-    "@angular/core": "^4.0.0",
-    "@angular/forms": "^4.0.0",
-    "@angular/http": "^4.0.0",
-    "@angular/platform-browser": "^4.0.0",
-    "@angular/platform-browser-dynamic": "^4.0.0",
-    "@angular/platform-server": "^4.0.0",
-    "@angular/router": "^4.0.0",
-    "@angular/upgrade": "^4.0.0",
-    "angular2-jwt": "^0.2.3",
-    "bcrypt": "^1.0.2",
-    "bcryptjs": "^2.4.3",
-    "body-parser": "~1.15.2",
-    "core-js": "^2.4.1",
+    "express": "*",
+    "mongoose": "*",
+    "bcryptjs": "*",
     "cors": "*",
-    "debug": "~2.2.0",
-    "express": "~4.14.0",
-    "hbs": "~3.1.0",
-    "jsonwebtoken": "^7.4.1",
-    "mongoose": "^4.11.3",
-    "mongoose-unique-validator": "^1.0.5",
-    "morgan": "~1.6.1",
-    "node-sass": "^4.5.3",
-    "nodemon": "^1.11.0",
+    "jsonwebtoken": "*",
+    "body-parser": "*",
     "passport": "*",
-    "passport-jwt": "*",
-    "reflect-metadata": "^0.1.3",
-    "rxjs": "^5.2.0",
-    "serve-favicon": "~2.3.0",
-    "zone.js": "0.8.12"
+    "passport-jwt": "*"
   },
   "devDependencies": {
     "@types/core-js": "0.9.36",
@@ -51,5 +24,7 @@
     "chai-http": "^3.0.0",
     "mocha": "^3.4.2",
     "supertest": "^3.0.0"
-  }
+  },
+  "author": "Mohamed Isse",
+  "license": "ISC"
 }

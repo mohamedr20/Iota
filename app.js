@@ -7,7 +7,7 @@ const passport = require('passport');
 const app = express();
 const port = process.env.PORT || 8000
 const config = require('./server/config/database');
-
+const debug = require('debug');
 const userRoutes = require('./server/routes/user');
 
 mongoose.connect(config.database);

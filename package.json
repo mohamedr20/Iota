@@ -1,10 +1,10 @@
 {
   "name": "iota",
   "version": "1.0.0",
-  "description": "Iota",
+  "description": "MEAN stack authentication app",
   "main": "app.js",
   "scripts": {
-    "test": "mocha --timeout 10000",
+    "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node app"
   },
   "dependencies": {
@@ -16,14 +16,6 @@
     "body-parser": "*",
     "passport": "*",
     "passport-jwt": "*"
-  },
-  "devDependencies": {
-    "@types/core-js": "0.9.36",
-    "@types/node": "^6.0.45",
-    "chai": "^4.1.0",
-    "chai-http": "^3.0.0",
-    "mocha": "^3.4.2",
-    "supertest": "^3.0.0"
   },
   "author": "Mohamed Isse",
   "license": "ISC"

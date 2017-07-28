@@ -5,7 +5,7 @@ const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const passport = require('passport');
 const app = express();
-const port = 8000;
+const port = process.env.PORT || 8000
 const config = require('./server/config/database');
 
 const userRoutes = require('./server/routes/user');

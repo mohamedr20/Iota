@@ -18,6 +18,9 @@
     "passport": "*",
     "passport-jwt": "*"
   },
+  "engines": {
+    "node": "8.1.2"
+  },
   "author": "Mohamed Isse",
   "license": "ISC"
 }

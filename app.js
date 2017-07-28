@@ -44,7 +44,7 @@ app.listen(port,()=>{
 });
 
 
-mongoose.connect('localhost:27017/Iota',()=>{
+mongoose.connect(config.database || 'localhost:27017/Iota',()=>{
   console.log('Connected to Database')
 });
 

@@ -40,7 +40,7 @@ app.use(bodyParser.json());
 app.use(passport.initialize());
 app.use(passport.session());
 
-require('./config/passport')(passport);
+require('./server/config/passport')(passport);
 
 app.use('/users', userRoutes);
 

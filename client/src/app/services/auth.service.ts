@@ -55,7 +55,7 @@ export class AuthService {
     return localStorage.getItem('id_token') !== null;
   }
 
-  logout(){
+  logOut(){
     this.authToken = null;
     this.user = null;
     localStorage.clear();

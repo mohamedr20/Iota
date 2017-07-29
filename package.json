@@ -23,5 +23,10 @@
     "node": "8.1.2"
   },
   "author": "Mohamed Isse",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "chai": "^4.1.0",
+    "mocha": "^3.4.2",
+    "node-sass": "^4.5.3"
+  }
 }

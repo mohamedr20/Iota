@@ -1,23 +1,15 @@
 
-<div class="jumbotron text-center">
-  <h1>MEAN Authentication App</h1>
-  <p class="lead">Welcome to our custom MEAN authentication application built from scratch</p>
-  <div>
-    <a class="btn btn-primary" [routerLink]="['/register']">Register</a> <a class="btn btn-default" [routerLink]="['/login']">Login</a>
-  </div>
-</div>
 
-<div class="row">
-  <div class="col-md-4">
-    <h3>Express Backend</h3>
-    <p>A rock solid Node.js/Express server using Mongoose to organize models and query the database</p>
+<header class="header-container">
+  <div class="layer">
+    <div class="content">
+      <div class="brand">
+        <h1 class="brand-heading">Iota</h1>
+      </div>
+      <h2 class="heading">Customize Your Sound</h2>
+      <p class="description">Change settings and listen to your favorite music on the fly.</p>
+      <a [routerLinkActiveOptions] = "{exact:true}" [routerLinkActive]="['active']" [routerLink]="['/login']"><button class="login-btn" >Log In here</button></a>
+      <a [routerLinkActiveOptions] = "{exact:true}" [routerLinkActive]="['active']" [routerLink]="['/register']"><button class="login-btn" >Register</button></a>
+    </div>
   </div>
-  <div class="col-md-4">
-    <h3>Angular-CLI</h3>
-    <p>Angular-CLI to generate components, services and more. Local dev server and easy compilation</p>
-  </div>
-  <div class="col-md-4">
-    <h3>JWT Tokens</h3>
-    <p>Full featured authentication using JSON web tokens. Login and store user data</p>
-  </div>
-</div>
+</header>

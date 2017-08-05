@@ -1,0 +1,91 @@
+@import url(https://fonts.googleapis.com/css?family=Josefin+Sans:300,400,700);
+
+html,body{
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+    overflow-x: hidden;
+    box-sizing: border-box;
+    color:rgb(226,226,226)
+}
+
+ .header-container{
+  height: 100%;
+  width:100%;
+  margin:0px;
+  display:flex;
+  background-image:url('http://www.kiplinger.com/kipimages/pages/12807.jpg');
+  background-size:cover;
+  background-repeat:no-repeat;
+  background-position: center center;
+  text-align: center;
+}
+
+
+.layer{
+  display:flex;
+  justify-content:center;
+  height:100vh;
+  width:100%;
+  background:rgba(15,15,15,0.79);
+}
+
+.content{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  flex-direction:column;
+}
+
+.brand{
+  display:flex;
+  flex-direction: row;
+
+}
+
+.brand-heading{
+  font:normal 400 64px/1 'Josefin Sans',sans-serif;
+}
+.heading{
+  font:normal 400 40px/1 'Josefin Sans', sans-serif;
+}
+.description{
+  font:normal 300 40px/1 'Josefin Sans',
+    sans-serif;
+}
+p{
+  width: 600px;
+  margin: 0 auto 20px;
+}
+
+.login-btn,.register-btn{
+    background-color: transparent;
+    border: solid 1.5px #FFF;
+    border-radius: 256px;
+    color: #FFF;
+    font-size: 13px;
+    letter-spacing: .03em;
+    line-height: 1.25em;
+    margin: 20px auto;
+    max-width: 320px;
+    height: 41px;
+    overflow: hidden;
+    padding: 2px 15px 0;
+    text-align: center;
+    text-transform: uppercase;
+    width: 100%;
+}
+
+.navigate-btn{
+
+}
+
+.down {
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+}
+
+#section{
+  height:100vh;
+}

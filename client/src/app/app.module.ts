@@ -14,11 +14,11 @@ import {HttpModule} from '@angular/http'
 import {AuthGuard} from './guards/auth.guard';
 
 const appRoutes: Routes =  [
-  {path:'', component: HomeComponent},
-  {path:'register', component: RegisterComponent},
-  {path:'login', component: LoginComponent},
-  {path:'dashboard', component: DashboardComponent,canActivate:[AuthGuard]},
-  {path:'profile', component: ProfileComponent, canActivate:[AuthGuard]}
+    {path:'', component: HomeComponent},
+    {path:'register', component: RegisterComponent},
+    {path:'login', component: LoginComponent},
+    {path:'dashboard', component: DashboardComponent,canActivate:[AuthGuard]},
+    {path:'profile', component: ProfileComponent, canActivate:[AuthGuard]}
 ]
 
 @NgModule({

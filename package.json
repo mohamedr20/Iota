@@ -13,6 +13,7 @@
     "cors": "*",
     "debug": "^2.6.8",
     "express": "*",
+    "flexboxgrid": "^6.3.1",
     "jsonwebtoken": "*",
     "mongoose": "*",
     "morgan": "^1.8.2",

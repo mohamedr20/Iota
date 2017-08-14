@@ -1,3 +1,38 @@
-<p>
-  dashboard works!
-</p>
+<div class="grid">
+
+
+  <div class="side-bar">
+  	<div class="side-bar-item "><img class="logo-img" src="../../../../../assets/images/headphone-logo.png"></div>
+  	<div class="side-bar-item">
+  		<div class="search-bar">
+      <span class="search-text">Search</span>
+      <img  class="search-img" src="./../../../../assets/images/search-glass.png">
+      </div>
+  		
+  	</div>
+
+  	<div class="list">
+  		<ul class="nav-list">
+  			<li class="nav-link">Browse</li>
+  			<li class="nav-link">Your Music</li>
+      <div class="profile">
+      <h4>Profile component</h4>
+      <img src="">
+      </div>
+  		</ul>
+  	</div>
+
+  </div>
+
+
+
+  <section class="main-content">
+    <button type="button" (click)="getData()">Get Token</button>
+    <div *ngIf="loading">loading....</div>
+    <pre>{{data|json}}</pre>
+  </section>
+
+
+
+  <div class="music-player">This is the music player component</div>
+</div>

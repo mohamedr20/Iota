@@ -7,25 +7,23 @@ import 'rxjs/add/operator/map';
 export class AuthService {
   authToken: any;
   user: any;
-  isDev:boolean;
+
 
   constructor(private http:Http) {
-    this.isDev = true; // Change to false before deployment
+
   }
 
   registerUser(user){
     let headers = new Headers();
     headers.append('Content-Type','application/json');
-    let ep = this.prepEndpoint('users/register');
-    return this.http.post(ep, user,{headers: headers})
+    return this.http.post('http://localhost:8080/users/register', user,{headers: headers})
       .map(res => res.json());
   }
 
   authenticateUser(user){
     let headers = new Headers();
     headers.append('Content-Type','application/json');
-    let ep = this.prepEndpoint('users/authenticate');
-    return this.http.post(ep, user,{headers: headers})
+    return this.http.post('http://localhost:8080/users/authenticate', user,{headers: headers})
       .map(res => res.json());
   }
 
@@ -34,8 +32,8 @@ export class AuthService {
     this.loadToken();
     headers.append('Authorization', this.authToken);
     headers.append('Content-Type','application/json');
-    let ep = this.prepEndpoint('users/profile');
-    return this.http.get(ep,{headers: headers})
+
+    return this.http.get('http://localhost:8080/users/profile',{headers: headers})
       .map(res => res.json());
   }
 
@@ -61,11 +59,4 @@ export class AuthService {
     localStorage.clear();
   }
 
-  prepEndpoint(ep){
-    if(this.isDev){
-      return ep;
-    } else {
-      return 'http://localhost:8080/'+ep;
-    }
-  }
 }

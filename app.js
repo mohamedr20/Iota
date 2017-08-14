@@ -7,7 +7,9 @@ const mongoose = require('mongoose');
 const config = require('./config/database');
 
 // Connect To Database
-mongoose.connect(config.database);
+const dbUri = config.database;
+
+mongoose.connect(dbUri);
 
 // On Connection
 mongoose.connection.on('connected', () => {
@@ -22,6 +24,7 @@ mongoose.connection.on('error', (err) => {
 const app = express();
 
 const users = require('./routes/user');
+const spotify  = require('./routes/spotify');
 
 // Port Number
 const port = process.env.PORT || 8080;
@@ -42,6 +45,8 @@ app.use(passport.session());
 require('./config/passport')(passport);
 
 app.use('/users', users);
+app.use('/spotify',spotify);
+
 
 // Index Route
 app.get('/', (req, res) => {
@@ -53,6 +58,8 @@ app.get('*', (req, res) => {
 });
 
 // Start Server
-app.listen(port, () => {
+app.listen(port || process.env.PORT, () => {
   console.log('Server started on port '+port);
 });
+
+module.exports = app;

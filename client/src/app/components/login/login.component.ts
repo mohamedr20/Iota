@@ -26,6 +26,7 @@ export class LoginComponent implements OnInit {
     })
   }
 
+
   onLoginSubmit(){
     let user = {
       username:this.myForm.value.username,

@@ -14,6 +14,7 @@ import {SpotifyService} from './services/spotify.service';
 import {HttpModule} from '@angular/http'
 import {AuthGuard} from './guards/auth.guard';
 import { SearchComponent } from './components/search/search.component';
+import { PlaylistComponent } from './components/dashboard/playlist/playlist.component';
 
 const appRoutes: Routes =  [
     {path:'', component: HomeComponent},
@@ -32,7 +33,8 @@ const appRoutes: Routes =  [
     HomeComponent,
     DashboardComponent,
     ProfileComponent,
-    SearchComponent
+    SearchComponent,
+    PlaylistComponent
   ],
   imports: [
     BrowserModule,
